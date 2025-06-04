@@ -1,0 +1,319 @@
+/*
+ * PLANNER Suite - Main CSS
+ * Global styles and variables for the PLANNER Suite application
+ */
+
+/* ===== CSS Variables ===== */
+:root {
+  /* Module Colors - Light Mode */
+  --stageplanner-color: #0066ff;
+  --barplanner-color: #9900ff;
+  --cleanplanner-color: #00ff40;
+  --secureplanner-color: #ff8000;
+  --commerceplanner-color: #ffeb00;
+  --festivalplanner-color: #ff0000;
+  
+  /* Base UI Colors - Light Mode */
+  --background-color: #f8fafc;
+  --surface-color: #ffffff;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --border-color: #e2e8f0;
+  
+  /* Glassmorphism Variables */
+  --glass-opacity: 0.2;
+  --glass-blur: 8px;
+  --glass-border-opacity: 0.18;
+  --glass-shadow-opacity: 0.37;
+  
+  /* Neumorphism Variables */
+  --neu-light-shadow: #d1d9e6;
+  --neu-dark-shadow: #ffffff;
+  --neu-distance: 10px;
+  --neu-blur: 20px;
+  --neu-intensity: 1;
+  
+  /* Animation Speeds */
+  --transition-fast: 150ms;
+  --transition-normal: 300ms;
+  --transition-slow: 500ms;
+  
+  /* Neon Effects */
+  --neon-glow-radius: 5px;
+  --neon-intensity: 0.7;
+  
+  /* Z-index Layers */
+  --z-background: -10;
+  --z-default: 1;
+  --z-overlay: 10;
+  --z-dropdown: 20;
+  --z-modal: 30;
+  --z-tooltip: 40;
+  --z-notification: 50;
+}
+
+/* Dark Mode Variables */
+.dark {
+  /* Module Colors - Dark Mode (slightly lighter for better visibility) */
+  --stageplanner-color: #3385ff;
+  --barplanner-color: #ad33ff;
+  --cleanplanner-color: #33ff66;
+  --secureplanner-color: #ff9933;
+  --commerceplanner-color: #fff366;
+  --festivalplanner-color: #ff3333;
+  
+  /* Base UI Colors - Dark Mode */
+  --background-color: #0f172a;
+  --surface-color: #1e293b;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --border-color: #334155;
+  
+  /* Glassmorphism Variables - Dark Mode */
+  --glass-opacity: 0.15;
+  --glass-border-opacity: 0.08;
+  
+  /* Neumorphism Variables - Dark Mode */
+  --neu-light-shadow: #0c111f;
+  --neu-dark-shadow: #121d35;
+}
+
+/* ===== Global Styles ===== */
+
+/* Smooth scrolling for the entire app */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Base body styles */
+body {
+  background-color: var(--background-color);
+  color: var(--text-primary);
+  transition: background-color var(--transition-normal) ease-in-out, 
+              color var(--transition-normal) ease-in-out;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Typography enhancements */
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -0.025em;
+}
+
+/* ===== Glassmorphism Effects ===== */
+.glass-effect {
+  background-color: rgba(255, 255, 255, var(--glass-opacity));
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid rgba(255, 255, 255, var(--glass-border-opacity));
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, var(--glass-shadow-opacity));
+}
+
+.dark .glass-effect {
+  background-color: rgba(15, 23, 42, var(--glass-opacity));
+  border: 1px solid rgba(255, 255, 255, var(--glass-border-opacity));
+}
+
+/* ===== Neumorphism Effects ===== */
+.neu-convex {
+  box-shadow: 
+    var(--neu-distance) var(--neu-distance) var(--neu-blur) var(--neu-light-shadow),
+    calc(-1 * var(--neu-distance)) calc(-1 * var(--neu-distance)) var(--neu-blur) var(--neu-dark-shadow);
+}
+
+.neu-concave {
+  box-shadow: 
+    inset var(--neu-distance) var(--neu-distance) var(--neu-blur) var(--neu-light-shadow),
+    inset calc(-1 * var(--neu-distance)) calc(-1 * var(--neu-distance)) var(--neu-blur) var(--neu-dark-shadow);
+}
+
+/* ===== Neon Effects ===== */
+.neon-stageplanner {
+  box-shadow: 0 0 var(--neon-glow-radius) var(--stageplanner-color);
+  text-shadow: 0 0 var(--neon-glow-radius) rgba(0, 102, 255, var(--neon-intensity));
+}
+
+.neon-barplanner {
+  box-shadow: 0 0 var(--neon-glow-radius) var(--barplanner-color);
+  text-shadow: 0 0 var(--neon-glow-radius) rgba(153, 0, 255, var(--neon-intensity));
+}
+
+.neon-cleanplanner {
+  box-shadow: 0 0 var(--neon-glow-radius) var(--cleanplanner-color);
+  text-shadow: 0 0 var(--neon-glow-radius) rgba(0, 255, 64, var(--neon-intensity));
+}
+
+.neon-secureplanner {
+  box-shadow: 0 0 var(--neon-glow-radius) var(--secureplanner-color);
+  text-shadow: 0 0 var(--neon-glow-radius) rgba(255, 128, 0, var(--neon-intensity));
+}
+
+.neon-commerceplanner {
+  box-shadow: 0 0 var(--neon-glow-radius) var(--commerceplanner-color);
+  text-shadow: 0 0 var(--neon-glow-radius) rgba(255, 235, 0, var(--neon-intensity));
+}
+
+.neon-festivalplanner {
+  box-shadow: 0 0 var(--neon-glow-radius) var(--festivalplanner-color);
+  text-shadow: 0 0 var(--neon-glow-radius) rgba(255, 0, 0, var(--neon-intensity));
+}
+
+/* ===== 3D Effects ===== */
+.effect-3d {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.card-3d {
+  transition: transform var(--transition-normal) ease;
+}
+
+.card-3d:hover {
+  transform: translateY(-5px) rotateX(5deg);
+}
+
+/* ===== Animations ===== */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Smooth transitions for interactive elements */
+a, button, input, select, textarea {
+  transition: all var(--transition-normal) ease;
+}
+
+/* ===== Custom Scrollbar ===== */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-secondary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-primary);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #4b5563;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
+
+/* ===== Module-specific styles ===== */
+.module-stageplanner {
+  --module-color: var(--stageplanner-color);
+}
+
+.module-barplanner {
+  --module-color: var(--barplanner-color);
+}
+
+.module-cleanplanner {
+  --module-color: var(--cleanplanner-color);
+}
+
+.module-secureplanner {
+  --module-color: var(--secureplanner-color);
+}
+
+.module-commerceplanner {
+  --module-color: var(--commerceplanner-color);
+}
+
+.module-festivalplanner {
+  --module-color: var(--festivalplanner-color);
+}
+
+/* ===== Utility Classes ===== */
+.backdrop-blur-xs {
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.backdrop-blur-sm {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.backdrop-blur-md {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.backdrop-blur-lg {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.backdrop-blur-xl {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.backdrop-blur-2xl {
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+/* ===== Responsive Adjustments ===== */
+@media (max-width: 640px) {
+  :root {
+    --neu-distance: 5px;
+    --neu-blur: 10px;
+    --neon-glow-radius: 3px;
+  }
+  
+  .card-3d:hover {
+    transform: translateY(-3px) rotateX(3deg);
+  }
+}
+
+/* ===== Reduced Motion ===== */
+@media (prefers-reduced-motion) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .animate-float, .animate-pulse-glow {
+    animation: none !important;
+  }
+  
+  .card-3d:hover {
+    transform: translateY(-2px);
+  }
+}
